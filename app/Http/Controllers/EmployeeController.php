@@ -25,11 +25,13 @@ class EmployeeController extends Controller
             'name' => 'required|max:255',
             'email' => 'required|unique:employees|max:255',
             'nid_no' => 'required|unique:employees|max:255',
+            'experience'=>'required|max:255',
             'address' => 'required',
             'phone' => 'required|max:13',
             'photo' => 'required',
             'salary' => 'required',
             'city' => 'required|max:30',
+            'vacation' => 'required|max:30',
         ]);
         
         $data=array();
@@ -139,6 +141,80 @@ class EmployeeController extends Controller
             $employee=Employee::find($id);
             
             return view('layouts.pages.view_employee',compact('employee'));
+        }
+        catch(Exception $e)
+        {
+            $notification=array(
+                'message'=>'Can not find the employee',
+                'alert-type'=>'danger'
+            );
+            return redirect('home')->with($notification);
+        }
+    }
+
+
+    public function edit_employee($id)
+    {
+        $employee=Employee::find($id);
+
+        return view('layouts.pages.edit_employee',compact('employee'));
+    }
+
+    public function update_employee(Request $request ,$id)
+    {
+        $validated = $request->validate([
+            'name' => 'required|max:255',
+            'email' => 'required|max:255',
+            'nid_no' => 'required|max:255',
+            'experience'=>'required|max:255',
+            'address' => 'required',
+            'phone' => 'required|max:13',
+            'salary' => 'required',
+            'city' => 'required|max:30',
+            'vacation' => 'required|max:30',
+        ]);
+        
+
+        try
+        {
+            $data=array();
+            $data['name']=$request->name;
+            $data['email']=$request->email;
+            $data['phone']=$request->phone;
+            $data['address']=$request->address;
+            $data['experience']=$request->experience;
+            $data['nid_no']=$request->nid_no;
+            $data['salary']=$request->salary;
+            $data['vacation']=$request->vacation;
+            $data['city']=$request->city;
+
+            $image=$request->file('photo');
+            $employee=Employee::find($id);
+            
+            if($image)
+            {
+                if (File::exists($employee->photo)) {
+                    //File::delete($image_path);
+                    unlink($employee->photo);
+                }
+                $image_name=$request->nid_no;
+                $ext=strtolower($image->getClientOriginalExtension());
+                $image_full_name=$image_name.".".$ext;
+                $upload_path="images/employee/";
+                $image_url=$upload_path.$image_full_name;
+                
+                $success=$image->move($upload_path,$image_full_name);
+                $data['photo']=$image_url;
+    
+            }
+            DB::table('employees')->where('id', $id)->update($data);
+
+            $notification=array(
+                'message'=>'Employee Updated Successfully',
+                'alert-type'=>'success'
+            );
+            return redirect('home')->with($notification);
+
         }
         catch(Exception $e)
         {

@@ -17,3 +17,7 @@ Route::post('/home/insert_employee','EmployeeController@store')->name('insert_em
 Route::get('/home/all_employee', 'EmployeeController@get_employees')->name('all_employees');
 Route::get('/home/delete_employee/{id}', 'EmployeeController@delete_employee')->name('delete_employee');
 Route::get('/home/view_employee/{id}', 'EmployeeController@view_employee')->name('view_employee');
+Route::get('/home/edit_employee/{id}', 'EmployeeController@edit_employee')->name('edit_employee');
+Route::post('/home/update_employee/{id}', 'EmployeeController@update_employee')->name('update_employee');
+
+// Customer Routes

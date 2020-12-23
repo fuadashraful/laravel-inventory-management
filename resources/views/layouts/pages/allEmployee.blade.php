@@ -44,7 +44,7 @@
                     </td>
                     <td>{{$employee->city}}</td>
                     <td>
-                        <a href="#" class="btn btn-sm btn-info">Edit</a>
+                        <a href="{{route('edit_employee', ['id' => $employee->id])}}" class="btn btn-sm btn-info">Edit</a>
                         <a href="" data-toggle="modal" data-target="#basicModal" class="btn btn-sm btn-danger">Delete</a>
                         <a href="{{route('view_employee', ['id' => $employee->id])}}" class="btn btn-sm btn-success">View</a>
                         <!-- basic modal -->
