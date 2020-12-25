@@ -21,3 +21,10 @@ Route::get('/home/edit_employee/{id}', 'EmployeeController@edit_employee')->name
 Route::post('/home/update_employee/{id}', 'EmployeeController@update_employee')->name('update_employee');
 
 // Customer Routes
+Route::get('/home/add_customer', 'CustomerController@index')->name('add_customer');
+Route::post('/home/insert_customer', 'CustomerController@store')->name('insert_customer');
+Route::get('/home/all_customer', 'CustomerController@get_customers')->name('all_customer');
+Route::get('/home/view_customer/{id}', 'CustomerController@view_customer')->name('view_customer');
+Route::get('/home/edit_customer/{id}', 'CustomerController@edit_customer')->name('edit_customer');
+Route::post('/home/update_customer/{id}', 'CustomerController@update_customer')->name('update_customer');
+Route::get('/home/delete_customer/{id}', 'CustomerController@delete_customer')->name('delete_customer');
