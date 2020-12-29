@@ -136,6 +136,21 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseSupplier" aria-expanded="true"
+                aria-controls="collapseForm">
+                <i class="fas fa-user"></i>
+                <span>Supplier</span>
+                </a>
+                <div id="collapseSupplier" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Supplier</h6>
+                        <a class="collapse-item" href="{{route('add_supplier')}}">Add Supplier</a>
+                        <a class="collapse-item" href="{{route('all_supplier')}}">All Supplier</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
                 aria-controls="collapseForm">
                 <i class="fab fa-fw fa-wpforms"></i>
