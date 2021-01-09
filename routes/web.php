@@ -34,7 +34,12 @@ Route::get('/home/add_supplier', 'SupplierController@index')->name('add_supplier
 Route::post('/home/insert_supplier','SupplierController@store')->name('insert_supplier');
 Route::get('/home/all_supplier', 'SupplierController@get_suppliers')->name('all_supplier');
 Route::get('/home/edit_supplier/{id}', 'SupplierController@edit_supplier')->name('edit_supplier');
-Route::get('/home/delete_supplier/{id}', 'SupplierController@edit_supplier')->name('delete_supplier');
 Route::get('/home/view_supplier/{id}', 'SupplierController@view_supplier')->name('view_supplier');
 Route::post('/home/update_supplier/{id}', 'SupplierController@update_supplier')->name('update_supplier');
 Route::get('/home/delete_supplier/{id}', 'SupplierController@delete_supplier')->name('delete_supplier');
+
+// Category Routes
+Route::get('/home/add_category', 'CategoryController@index')->name('add_category');
+Route::post('/home/insert_category','CategoryController@store')->name('insert_category');
+Route::get('/home/all_category', 'CategoryController@get_categories')->name('all_category');
+Route::get('/home/delete_category/{id}', 'CategoryController@delete_category')->name('delete_category');

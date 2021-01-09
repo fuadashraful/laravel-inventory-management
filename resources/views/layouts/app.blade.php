@@ -151,6 +151,21 @@
             </li>
 
             <li class="nav-item">
+                <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseCategory" aria-expanded="true"
+                aria-controls="collapseForm">
+                <i class="fas fa-sitemap"></i>
+                <span>Category</span>
+                </a>
+                <div id="collapseCategory" class="collapse" aria-labelledby="headingForm" data-parent="#accordionSidebar">
+                    <div class="bg-white py-2 collapse-inner rounded">
+                        <h6 class="collapse-header">Category</h6>
+                        <a class="collapse-item" href="{{route('add_category')}}">Add Category</a>
+                        <a class="collapse-item" href="{{route('all_category')}}">All Category</a>
+                    </div>
+                </div>
+            </li>
+
+            <li class="nav-item">
                 <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseForm" aria-expanded="true"
                 aria-controls="collapseForm">
                 <i class="fab fa-fw fa-wpforms"></i>
