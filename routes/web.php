@@ -43,3 +43,10 @@ Route::get('/home/add_category', 'CategoryController@index')->name('add_category
 Route::post('/home/insert_category','CategoryController@store')->name('insert_category');
 Route::get('/home/all_category', 'CategoryController@get_categories')->name('all_category');
 Route::get('/home/delete_category/{id}', 'CategoryController@delete_category')->name('delete_category');
+
+
+//Product Route
+Route::get('/home/add_product','ProductController@index')->name('add_product');
+Route::post('/home/insert_product','ProductController@store')->name('insert_product');
+Route::get('/home/all_product', 'ProductController@get_products')->name('all_product');
+Route::get('/home/delete_product/{id}', 'ProductController@delete_product')->name('delete_product');
